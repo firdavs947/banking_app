@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
         itemStyle: LiquidGlassTabItemStyle(
           unselectedColor: AppColors.black,
             labelFontSize: 13,
-            selectedColor: AppColors.black,
+            selectedColor: AppColors.blue,
             iconSize: 28),
         items: _items,
         selectedIndex: _index,
