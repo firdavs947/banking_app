@@ -1,4 +1,4 @@
-import 'package:banking_app22/consts/colors/app_colors.dart';
+import 'package:banking_app22/core/consts/colors/appcolors.dart';
 import 'package:banking_app22/screens/all_transactions_sccreen.dart.dart';
 import 'package:banking_app22/screens/card_info.dart';
 import 'package:banking_app22/screens/home_screen.dart';
@@ -44,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
         selectedIndex: _index,
         onChanged: (i) => setState(() => _index = i),
         width: MediaQuery.sizeOf(context).width * 0.9,
-        height: 68,
+        height: 68, 
         style: LiquidGlassStyle(
           shape: const LiquidGlassShape.continuousRoundedRectangle(
             cornerRadius: 34,

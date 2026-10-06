@@ -1,10 +1,7 @@
-import 'package:banking_app22/consts/colors/app_colors.dart';
+import 'package:banking_app22/core/consts/colors/appcolors.dart';
 import 'package:banking_app22/presentation/home_view.dart';
-import 'package:banking_app22/widgets/bank_card.dart';
 import 'package:banking_app22/widgets/menu_title.dart';
-import 'package:banking_app22/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:u_credit_card/u_credit_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -2,7 +2,7 @@ import 'package:banking_app22/presentation/repository/home_repository.dart';
 import 'package:flutter/material.dart';
 
 class AllTransactions extends StatefulWidget {
-  const AllTransactions({super.key}); // Исправлено имя конструктора
+  const AllTransactions({super.key}); 
 
   @override
   State<AllTransactions> createState() => _AllTransactionsState();

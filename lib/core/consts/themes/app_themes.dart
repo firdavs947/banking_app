@@ -1,4 +1,4 @@
-import 'package:banking_app22/consts/colors/app_colors.dart';
+import 'package:banking_app22/core/consts/colors/appcolors.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
