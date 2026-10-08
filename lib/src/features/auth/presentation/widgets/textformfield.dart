@@ -1,9 +1,10 @@
-
-import 'package:banking_app22/core/consts/colors/appcolors.dart';
+import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
+import 'package:banking_app22/src/features/auth/presentation/widgets/heroText.dart';
 import 'package:flutter/material.dart';
 
 class AuthField extends StatelessWidget {
   const AuthField({
+    super.key,
     required this.label,
     required this.controller,
     required this.icon,
@@ -13,8 +14,10 @@ class AuthField extends StatelessWidget {
     this.obscureText = false,
     this.suffix,
     this.onSubmitted,
+    this.heroTag,
   });
 
+  final String? heroTag;
   final String label;
   final TextEditingController controller;
   final IconData icon;
@@ -27,13 +30,19 @@ class AuthField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const labelStyle = TextStyle(fontSize: 13, color: AppColors.hint);
+    final prefix = Icon(icon, size: 20, color: AppColors.fieldIcon);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: const TextStyle(fontSize: 13, color: AppColors.hint),
-        ),
+        heroTag == null
+            ? Text(label, style: labelStyle)
+            : HeroText(
+                tag: '${heroTag}_label',
+                text: label,
+                style: labelStyle,
+              ),
         TextFormField(
           controller: controller,
           validator: validator,
@@ -44,7 +53,9 @@ class AuthField extends StatelessWidget {
           cursorColor: AppColors.primary,
           style: const TextStyle(fontSize: 14, color: AppColors.black),
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, size: 20, color: AppColors.fieldIcon),
+            prefixIcon: heroTag == null
+                ? prefix
+                : Hero(tag: heroTag!, child: prefix),
             prefixIconConstraints: const BoxConstraints(minWidth: 36),
             suffixIcon: suffix,
             contentPadding: const EdgeInsets.symmetric(vertical: 14),

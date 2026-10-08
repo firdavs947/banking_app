@@ -1,4 +1,4 @@
-import 'package:banking_app22/core/consts/colors/appcolors.dart';
+import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
 import 'package:banking_app22/screens/all_transactions_sccreen.dart.dart';
 import 'package:banking_app22/screens/card_info.dart';
 import 'package:banking_app22/screens/home_screen.dart';

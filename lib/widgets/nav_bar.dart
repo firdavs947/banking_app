@@ -1,4 +1,4 @@
-import 'package:banking_app22/core/consts/colors/appcolors.dart';
+import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {

@@ -23,4 +23,5 @@ class AppColors {
   static const Color hint = Color(0xFF9A9CA5);
   static const Color divider = Color(0xFFEDEDF0);
   static const Color fieldIcon = Color(0xFF8E909A);
+    static const Color primarySoft = Color(0xFFE8F0FF);
 }
