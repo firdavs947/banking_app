@@ -9,7 +9,7 @@ class HomeRepository {
   static Future<List<CardModel>> getCards() async {
     try {
       final userToken = await FlutterSecureStorage().read(key: 'jwt');
-      final url = Uri.parse('http://localhost:1337/api/kartalars');
+      final url = Uri.parse('http://10.0.2.2:1337/api/kartalars');
       final response = await http.get(
         url,
         headers: {'Authorization': 'Bearer $userToken'},
