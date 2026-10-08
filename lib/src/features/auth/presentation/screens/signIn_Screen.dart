@@ -1,4 +1,4 @@
-import 'package:banking_app22/screens/main_screen.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/main_screen.dart';
 import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
 import 'package:banking_app22/src/features/auth/presentation/cubit/signIn_cubit.dart';
 import 'package:banking_app22/src/features/auth/presentation/cubit/signIn_state.dart';

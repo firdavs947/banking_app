@@ -1,8 +1,8 @@
 import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
-import 'package:banking_app22/presentation/home_view.dart';
+import 'package:banking_app22/src/features/home/presentation/widgets/home_view.dart';
 import 'package:banking_app22/src/features/auth/presentation/screens/reegister_screen.dart';
 import 'package:banking_app22/src/features/auth/presentation/widgets/reveal.dart';
-import 'package:banking_app22/widgets/menu_title.dart';
+import 'package:banking_app22/src/features/home/presentation/widgets/menu_title.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';

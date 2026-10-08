@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:banking_app22/screens/main_screen.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/main_screen.dart';
 import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
 import 'package:banking_app22/src/features/auth/presentation/screens/reegister_screen.dart';
 import 'package:flutter/material.dart';

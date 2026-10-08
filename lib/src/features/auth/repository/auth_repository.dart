@@ -12,7 +12,7 @@ class AuthException implements Exception {
 }
 
 class AuthRepository {
-  static const _baseUrl = 'http://10.0.2.2:1337';
+  static const _baseUrl = 'http://localhost:1337';
 
   static Future<void> register({
     required String email,

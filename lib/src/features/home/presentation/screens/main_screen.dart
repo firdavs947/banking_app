@@ -1,7 +1,7 @@
 import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
-import 'package:banking_app22/screens/all_transactions_sccreen.dart.dart';
-import 'package:banking_app22/screens/card_info.dart';
-import 'package:banking_app22/screens/home_screen.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/all_transactions_sccreen.dart.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/card_info.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:liquid_glass_easy/liquid_glass_easy.dart';
 
