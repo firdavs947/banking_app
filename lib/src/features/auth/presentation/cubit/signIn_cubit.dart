@@ -1,6 +1,4 @@
-import 'package:banking_app22/src/features/auth/presentation/cubit/register_state.dart';
 import 'package:banking_app22/src/features/auth/presentation/cubit/signIn_state.dart';
-import 'package:banking_app22/src/features/auth/repository/auth_repository.dart';
 import 'package:banking_app22/src/features/auth/repository/signIn_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
