@@ -23,14 +23,11 @@ class SigninRepository {
           .post(
             Uri.parse('$_baseUrl/api/auth/local'),
             headers: {'Content-Type': 'application/json'},
-            body: json.encode({
-              'identifier': email,
-              'password': password,
-            }),
+            body: json.encode({'identifier': email, 'password': password}),
           )
           .timeout(const Duration(seconds: 15));
 
-          if (response.statusCode >= 200 && response.statusCode < 300) {
+      if (response.statusCode >= 200 && response.statusCode < 300) {
         final data = json.decode(response.body);
         await TokenStorage.save(
           jwt: data['jwt'],

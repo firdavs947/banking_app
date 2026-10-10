@@ -35,7 +35,7 @@ class AuthRepository {
       print('register status: ${response.statusCode}');
       print('register body: ${response.body}');
 
-              if (response.statusCode >= 200 && response.statusCode < 300) {
+      if (response.statusCode >= 200 && response.statusCode < 300) {
         final data = json.decode(response.body);
         await TokenStorage.save(
           jwt: data['jwt'],

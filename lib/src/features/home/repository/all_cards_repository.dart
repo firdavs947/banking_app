@@ -28,7 +28,6 @@ class AllCardsRepository {
     return '${lastDay.year}-$mm-$dd';
   }
 
-
   static Future<void> addCard({
     required String holder,
     required String number,
@@ -37,7 +36,7 @@ class AllCardsRepository {
   }) async {
     try {
       final jwt = await const FlutterSecureStorage().read(key: 'jwt');
-          final response = await ApiClient.post(
+      final response = await ApiClient.post(
         '/api/kartalars',
         body: {
           'data': {
@@ -47,8 +46,7 @@ class AllCardsRepository {
             _cvvField: cvv,
           },
         },
-      )
-          .timeout(const Duration(seconds: 15));
+      ).timeout(const Duration(seconds: 15));
 
       print('add card status: ${response.statusCode}');
       print('add card body: ${response.body}');

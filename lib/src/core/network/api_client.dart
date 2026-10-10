@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 class ApiClient {
   static const baseUrl = 'http://10.0.2.2:1337';
+  // http://10.0.2.2:1337
   static const _timeout = Duration(seconds: 15);
 
   static void Function()? onSessionExpired;
@@ -37,7 +38,7 @@ class ApiClient {
     );
   }
 
-   static Future<http.Response> delete(String path) {
+  static Future<http.Response> delete(String path) {
     return _send(
       (token) => http.delete(
         Uri.parse('$baseUrl$path'),
@@ -68,13 +69,15 @@ class ApiClient {
   }
 
   static Future<bool> _refresh() {
-    return _refreshing ??= _doRefresh().then((ok) async {
-      if (!ok) {
-        await TokenStorage.clear();
-        onSessionExpired?.call();
-      }
-      return ok;
-    }).whenComplete(() => _refreshing = null);
+    return _refreshing ??= _doRefresh()
+        .then((ok) async {
+          if (!ok) {
+            await TokenStorage.clear();
+            onSessionExpired?.call();
+          }
+          return ok;
+        })
+        .whenComplete(() => _refreshing = null);
   }
 
   static Future<bool> _doRefresh() async {
