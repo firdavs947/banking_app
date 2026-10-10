@@ -28,6 +28,6 @@ class CardModel {
     documentID: json['documentId']?.toString() ?? '',
     amount: json['Amount']?.toString() ?? '',
     recipient: json['Recipient']?.toString() ?? '',
-    cardType: json['Card_type']?.toString() ?? '',
+    cardType: json['Car_type']?.toString() ?? '',
   );
 }

@@ -1,6 +1,7 @@
 import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/add_card_screen.dart';
+import 'package:banking_app22/src/features/home/presentation/screens/all_cards_screen.dart';
 import 'package:banking_app22/src/features/home/presentation/screens/all_transactions_sccreen.dart.dart';
-import 'package:banking_app22/src/features/home/presentation/screens/card_info.dart';
 import 'package:banking_app22/src/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:liquid_glass_easy/liquid_glass_easy.dart';
@@ -19,15 +20,16 @@ class _MainScreenState extends State<MainScreen> {
     LiquidGlassTabBarItem(icon: CupertinoIcons.house_fill, label: 'Home'),
     LiquidGlassTabBarItem(icon: CupertinoIcons.time, label: 'History'),
     LiquidGlassTabBarItem(icon: CupertinoIcons.add, label: 'Add'),
-    LiquidGlassTabBarItem(icon: CupertinoIcons.graph_square, label: 'Proggress'),
+    LiquidGlassTabBarItem(icon: CupertinoIcons.creditcard, label: 'All Cards'),
   ];
 
-  late final List<Widget> _screens = const [
-    HomeScreen(),
-   AllTransactions(),
-   CardInfo(),
-    
-    CardInfo()
+  void _goHome() => setState(() => _index = 0);
+
+  late final List<Widget> _screens = [
+    const HomeScreen(),
+    const AllTransactions(),
+    AddCardScreen(onSuccess: _goHome),
+    AllCardsScreen(onEdited: _goHome),
   ];
 
   @override
@@ -37,14 +39,15 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: LiquidGlassTabBar(
         itemStyle: LiquidGlassTabItemStyle(
           unselectedColor: AppColors.black,
-            labelFontSize: 13,
-            selectedColor: AppColors.blue,
-            iconSize: 28),
+          labelFontSize: 13,
+          selectedColor: AppColors.blue,
+          iconSize: 31,
+        ),
         items: _items,
         selectedIndex: _index,
         onChanged: (i) => setState(() => _index = i),
         width: MediaQuery.sizeOf(context).width * 0.9,
-        height: 68, 
+        height: 68,
         style: LiquidGlassStyle(
           shape: const LiquidGlassShape.continuousRoundedRectangle(
             cornerRadius: 34,

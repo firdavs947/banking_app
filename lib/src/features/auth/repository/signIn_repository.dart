@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:banking_app22/src/core/network/token_storage.dart';
 import 'package:http/http.dart' as http;
 
 class SigninExseption implements Exception {
@@ -30,15 +30,14 @@ class SigninRepository {
           )
           .timeout(const Duration(seconds: 15));
 
-      if (response.statusCode >= 200 && response.statusCode < 300) {
+          if (response.statusCode >= 200 && response.statusCode < 300) {
         final data = json.decode(response.body);
-        await const FlutterSecureStorage().write(
-          key: 'jwt',
-          value: data['jwt'],
+        await TokenStorage.save(
+          jwt: data['jwt'],
+          refreshToken: data['refreshToken'],
         );
         return;
       }
-
       final data = json.decode(response.body);
       throw SigninExseption(data['error']?['message'] ?? 'Sign in failed');
     } on SocketException {

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:banking_app22/src/core/network/token_storage.dart';
 import 'package:http/http.dart' as http;
 
 class AuthException implements Exception {
@@ -35,11 +35,11 @@ class AuthRepository {
       print('register status: ${response.statusCode}');
       print('register body: ${response.body}');
 
-           if (response.statusCode >= 200 && response.statusCode < 300) {
+              if (response.statusCode >= 200 && response.statusCode < 300) {
         final data = json.decode(response.body);
-        await const FlutterSecureStorage().write(
-          key: 'jwt',
-          value: data['jwt'],
+        await TokenStorage.save(
+          jwt: data['jwt'],
+          refreshToken: data['refreshToken'],
         );
         return;
       }
