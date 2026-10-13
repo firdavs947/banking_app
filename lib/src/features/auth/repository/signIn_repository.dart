@@ -27,11 +27,15 @@ class SigninRepository {
           )
           .timeout(const Duration(seconds: 15));
 
-      if (response.statusCode >= 200 && response.statusCode < 300) {
+           if (response.statusCode >= 200 && response.statusCode < 300) {
         final data = json.decode(response.body);
         await TokenStorage.save(
           jwt: data['jwt'],
           refreshToken: data['refreshToken'],
+        );
+        await TokenStorage.saveUser(
+          id: data['user']['id'].toString(),
+          documentId: data['user']['documentId']?.toString(),
         );
         return;
       }

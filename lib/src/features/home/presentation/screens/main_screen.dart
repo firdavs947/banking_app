@@ -3,6 +3,7 @@ import 'package:banking_app22/src/features/home/presentation/screens/add_card_sc
 import 'package:banking_app22/src/features/home/presentation/screens/all_cards_screen.dart';
 import 'package:banking_app22/src/features/home/presentation/screens/all_transactions_sccreen.dart.dart';
 import 'package:banking_app22/src/features/home/presentation/screens/home_screen.dart';
+import 'package:banking_app22/src/features/profile/presentation/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:liquid_glass_easy/liquid_glass_easy.dart';
 
@@ -21,6 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     LiquidGlassTabBarItem(icon: CupertinoIcons.time, label: 'History'),
     LiquidGlassTabBarItem(icon: CupertinoIcons.add, label: 'Add'),
     LiquidGlassTabBarItem(icon: CupertinoIcons.creditcard, label: 'All Cards'),
+      LiquidGlassTabBarItem(icon: CupertinoIcons.person, label: 'Profile'),
   ];
 
   void _goHome() => setState(() => _index = 0);
@@ -30,6 +32,7 @@ class _MainScreenState extends State<MainScreen> {
     const AllTransactions(),
     AddCardScreen(onSuccess: _goHome),
     AllCardsScreen(onEdited: _goHome),
+    ProfileScreen()
   ];
 
   @override

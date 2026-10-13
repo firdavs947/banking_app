@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'package:banking_app22/src/core/consts/colors/appcolors.dart';
 import 'package:banking_app22/src/features/auth/presentation/cubit/register_cubit.dart';
 import 'package:banking_app22/src/features/auth/presentation/cubit/register_state.dart';
+import 'package:banking_app22/src/features/auth/presentation/cubit/upload_cubit.dart';
+import 'package:banking_app22/src/features/auth/presentation/widgets/avatar_widget.dart';
 import 'package:banking_app22/src/features/home/presentation/screens/main_screen.dart';
 import 'package:banking_app22/src/features/auth/presentation/screens/signIn_Screen.dart';
 import 'package:banking_app22/src/features/auth/presentation/widgets/hero.dart';
@@ -10,6 +13,7 @@ import 'package:banking_app22/src/features/auth/presentation/widgets/textformfie
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key, this.portalIntro = false});
@@ -27,6 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen>
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _obscure = true;
+    File? _avatar;
 
   late final AnimationController _intro;
   Animation<double>? _routeAnimation;
@@ -79,10 +84,11 @@ class _RegisterScreenState extends State<RegisterScreen>
   void _submit(BuildContext context) {
     FocusScope.of(context).unfocus();
     if (!_formKey.currentState!.validate()) return;
-    context.read<RegisterCubit>().signUp(
+       context.read<RegisterCubit>().signUp(
       email: _emailController.text.trim(),
       password: _passwordController.text,
       username: _nameController.text.trim(),
+      avatar: _avatar,
     );
   }
 
@@ -152,19 +158,22 @@ class _RegisterScreenState extends State<RegisterScreen>
                             fromScale: 0.8,
                             child: Hero(
                               tag: 'Icon',
-                              child: Container(
-                                width: 64,
-                                height: 64,
-                                decoration: const BoxDecoration(
-                                  color: AppColors.primarySoft,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Icon(
-                                  Icons.account_balance_rounded,
-                                  size: 30,
-                                  color: AppColors.primary,
-                                ),
-                              ),
+                               child: ProfileAvatarUpdateWidget(
+  onPicked: (file) => _avatar = file,
+),
+                              //  Container(
+                              //   width: 64,
+                              //   height: 64,
+                              //   decoration: const BoxDecoration(
+                              //     color: AppColors.primarySoft,
+                              //     shape: BoxShape.circle,
+                              //   ),
+                              //   child: const Icon(
+                              //     Icons.account_balance_rounded,
+                              //     size: 30,
+                              //     color: AppColors.primary,
+                              //   ),
+                              // ),
                             ),
                           ),
                         ),
@@ -300,8 +309,9 @@ class _RegisterScreenState extends State<RegisterScreen>
                                         foregroundColor: AppColors.background,
                                         elevation: 0,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(16),
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
                                         ),
                                       ),
                                       child: const Text(
