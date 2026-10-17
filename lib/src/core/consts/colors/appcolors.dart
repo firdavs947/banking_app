@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  // --- Ваши оригинальные цвета ---
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFF3F3F3);
   static const Color green = Color(0xFF34C759);
@@ -19,9 +20,26 @@ class AppColors {
   static const Color amber = Color(0xFFFF9F1C);
   static const Color teal = Color(0xFF4DD0B1);
   static const Color orange = Color(0xFFFF6B1A);
-    static const Color primary = Color(0xFF0A66FF);
+  static const Color primary = Color(0xFF0A66FF);
   static const Color hint = Color(0xFF9A9CA5);
   static const Color divider = Color(0xFFEDEDF0);
   static const Color fieldIcon = Color(0xFF8E909A);
-    static const Color primarySoft = Color(0xFFE8F0FF);
+  static const Color primarySoft = Color(0xFFE8F0FF);
+
+  // --- Новые добавленные цвета для MenuItem ---
+  static const Color lightBlue = Color(0xFF33B5E5);
+  static const Color cyan = Color(0xFF00BCD4);
+  static const Color deepOrange = Color(0xFFFF5722);
+  static const Color lightGreen = Color(0xFF8BC34A);
+  static const Color emerald = Color(0xFF2ECC71);
+  static const Color lime = Color(0xFFCDDC39);
+  static const Color rose = Color(0xFFE91E63);
+  static const Color violet = Color(0xFF8E44AD);
+  static const Color indigoAccent = Color(0xFF536DFE);
+  static const Color magenta = Color(0xFFFF007F);
+  static const Color tealAccent = Color(0xFF64FFDA);
+  static const Color blueGrey = Color(0xFF607D8B);
+  static const Color lightBlueAccent = Color(0xFF40C4FF);
+  static const Color yellow = Color(0xFFFFEB3B);
+  static const Color gold = Color(0xFFFFD700);
 }

@@ -13,7 +13,7 @@ class AddCardException implements Exception {
 }
 
 class CardRepository {
-  static const userRelation = 'kartalar';
+  static const userRelation = 'kartalars';
   static const _holderField = 'Holder_name';
   static const _numberField = 'Card_number';
   static const _expiryField = 'Expire_date';

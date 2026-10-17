@@ -27,7 +27,10 @@ class SigninRepository {
           )
           .timeout(const Duration(seconds: 15));
 
-           if (response.statusCode >= 200 && response.statusCode < 300) {
+      print('login status: ${response.statusCode}');
+      print('login body: ${response.body}');
+
+      if (response.statusCode >= 200 && response.statusCode < 300) {
         final data = json.decode(response.body);
         await TokenStorage.save(
           jwt: data['jwt'],
@@ -39,8 +42,13 @@ class SigninRepository {
         );
         return;
       }
-      final data = json.decode(response.body);
-      throw SigninExseption(data['error']?['message'] ?? 'Sign in failed');
+
+      String message = 'Sign in failed (${response.statusCode})';
+      try {
+        final data = json.decode(response.body);
+        message = data['error']?['message']?.toString() ?? message;
+      } catch (_) {}
+      throw SigninExseption(message);
     } on SocketException {
       throw const SigninExseption('Check your internet connection!');
     } on TimeoutException {
